@@ -1,7 +1,7 @@
 # Olá mundo! Me chamo Vinícius, muito prazer!! 👋👋
 <div>
   <a href="https://github.com/viniNascimento63"><img height="150em" src="https://github-readme-stats.vercel.app/api?username=viniNascimento63&show_icons=true&hide=contribs,prs&cache_seconds=86400&theme=github_dark_dimmed">  
-  <img height="150em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=viniNascimento63&repo=github-readme-stats&cache_seconds=86400&theme=github_dark_dimmed"> 
+  <img height="140em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=viniNascimento63&repo=github-readme-stats&cache_seconds=86400&theme=github_dark_dimmed"> 
 </div>
 
 ##
