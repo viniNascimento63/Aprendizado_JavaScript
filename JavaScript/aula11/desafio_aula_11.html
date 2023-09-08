@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio dos países</title>
+    <style>
+        body {
+            background: rgb(255, 252, 74);
+            font: normal 16.5pt Arial;
+        }
+        input {
+            width: 120px;
+            height: 22px;
+        }
+        input#but {
+            height: 28.1px;
+        }
+        </style>
+</head>
+<body>
+    <h1>Em que país você mora?</h1>
+    <input type="text" name="ctxt" id="ctxt">
+    <input type="button" id="but" value="Verificar" onclick="clicar()">
+    <div id="casa"></div>
+    <div id="res"></div>
+
+    <script>
+        function clicar() {
+            var país = window.document.getElementById('ctxt').value; //extrai texto de 'ctxt' e guarda na variável país
+            
+            var casa = document.getElementById('casa');
+            casa.innerHTML = `<p>Morando em <strong>${país}</strong>...<p>`;
+            
+            var res = document.getElementById('res');
+
+            if (país == 'Brasil') {
+                res.innerHTML = '<p>Você é <strong>BRASILEIRO!</strong></p>';
+            } else {
+                res.innerHTML = '<p>Você é <strong>ESTRANGEIRO!</strong></p>';
+            }
+        }
+    </script>
+</body>
+</html>

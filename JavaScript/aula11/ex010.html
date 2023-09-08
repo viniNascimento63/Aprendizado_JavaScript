@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+    <style>
+        body {
+            background: lightgray;
+            font: normal 16.5pt Arial;
+        }
+        input {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de MULTAS</h1>
+    <p>Limite de velociadade: <strong>60 km/h</strong>.</p>
+    Velocidade do carro: <input type="number" name="ct1" id="ct1"><strong> km/h</strong>
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res"></div>
+
+    <script>
+        function calcular() {
+            var ct1 = Number(document.querySelector('input#ct1').value);
+            var res = document.getElementById('res');
+            res.innerHTML = `<p>Sua velocidade é de <strong>${ct1} km/h</strong></p>`;
+            if (ct1 > 60) {
+                res.innerHTML = '<p><strong>MULTADO</strong> por excesso de velocidade!</p>';
+            }
+            res.innerHTML += `<p>Dirija sempre com cinto de segurança ;)</p>`;//como não é número mas sim string, irá concatenar com o que já estava na variável resultado
+        }
+    </script>
+</body>
+</html>

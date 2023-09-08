@@ -1,0 +1,5 @@
+// no JavaScript também é possível atribuir uma função a uma variável
+let v = function(x) {
+    return 2 * x;
+}
+console.log(v(3));

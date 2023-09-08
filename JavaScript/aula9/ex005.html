@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos DOM</title>
+    <style>
+        body {
+            background: rgb(255, 255, 255);
+            font: normal 16.5pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos DOM</h1>
+    <p><strong>Aqui vai o resultado!!!</strong></p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <div id="msg">Clique em mim</div>
+    <div class="msgc">Segunda div de exemplo</div>
+    <div name="msgn">Terceira div de exemplo</div>
+    <div name="msgn">Quarta div de exemplo</div>
+
+    <script>
+        window.document.write('Olá mundo!<br>');
+        window.document.write(window.document.charset + '<br>');//peço que escreva o nome da cadeia de caracteres presente no documento
+        window.document.write(window.document.URL + '<br>');//peço que escreva a URL do documento
+        window.document.write(window.navigator.appName + '<br>');//peço que escreva o nome do navegador presente em window
+        window.document.write(window.document.getElementsByTagName("p")[1].innerHTML + '<br>');//selecionei o parágrafo[1], extraí seu conteúdo html e mandei escrever no documento
+        window.document.querySelector('body').style.background = 'green';//seleciono tag body e mudo cor de fundo pelo JS
+        
+        var p0 = document.getElementsByTagName('p')[0];
+        p0.style.color = 'blue';
+        
+        var d1 = document.getElementById('msg');
+        d1.innerHTML = '<strong>Mudando o texto da div</strong>';//acessei a div a partir do JS através do DOM e a modifiquei seu texto
+        d1.style.background = 'white';
+        d1.style.color = 'blue';
+        
+        var d2 = window.document.getElementsByName('msgn')[1];//div indentificada por nome 'msgn'
+        d2.style.background = 'blue';
+        d2.style.color = 'white';
+        
+        var d3 = document.getElementsByClassName('msgc')[0];//div identificada por classe 'msgc'
+        d3.style.background = 'pink';
+        d3.style.color = 'white';
+        d3.innerHTML = '<strong>' + d3.innerText + '</strong>';
+    </script>
+</body>
+</html>
