@@ -13,23 +13,22 @@
     </header>
     <section>
         <div>
-            <p1>Digite um número (entre 1 e 100): <input type="number" id="num"></p1>
-            <input type="button" value="Adicionar" id="adc" onclick="adicionar()">
             <p>
-                <select name="lista" id="lst" size="10">
-                    
-                </select>
+                Digite um número (1 a 100): <input type="number" id="num">
+                <input type="button" value="Adicionar" onclick="adicionar()">
             </p>
+
             <p>
-                <input type="button" value="Finalizar" id="fin">
+                <select id="lista" size="10"></select>
             </p>
         </div>
-        <div>
-
+        
+        <div id="resultados">
+            <p><input type="button" value="Finalizar" onclick="finalizar()"></p>
         </div>
     </section>
     <footer>
-        <p1>&copy; Void_63</p1>
+        <p1>&copy; Vinícius</p1>
     </footer>
     <script src="script.js"></script>
 </body>
