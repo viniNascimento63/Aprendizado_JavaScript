@@ -29,9 +29,12 @@ function adicionar() {
                 // Cadastra o número 
                 let lista = document.getElementById('lista');
                 let item = document.createElement('option');
+
                 numeros.push(num.value);
+
                 item.innerText = `Valor ${num.value} adicionado`;
                 lista.appendChild(item);
+
                 num.value = '';
                 num.focus();
                 
@@ -48,14 +51,27 @@ function adicionar() {
 }
 function finalizar() {
 
-    // Quantidade de números
+    // Seleciona a div onde serão exibidos os resultados
     let resultados = document.getElementById('resultados');
+
+    // Ordena o vetor para obter posteriormente o maior e o menor valor
+    numeros.sort(function(a, b) {
+        return a - b;
+    });
+
+    // Verifica se o conteúdo da div está vazio
+    if (resultados.hasChildNodes()) {
+        console.log('div cheia');
+        console.log(numeros)
+        resultados.innerText = '';
+    }
+    
+    // Quantidade de números
     let qntdNum = document.createElement('p');
     qntdNum.innerText = `Ao todo, foram cadastrados ${numeros.length} número(s).`;
     resultados.appendChild(qntdNum);
     
     // Maior número
-    numeros.sort();
     let maiorNum = numeros[numeros.length-1];
     let maior = document.createElement('p');
     maior.innerText = `O maior número é ${maiorNum}.`
