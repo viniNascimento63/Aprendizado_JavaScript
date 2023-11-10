@@ -3,6 +3,9 @@ function carregar() {
 
 }
 
+// Seleciona a div onde serão exibidos os resultados
+var resultados = document.getElementById('resultados');
+
 var numeros = [];
 
 function adicionar() {
@@ -35,6 +38,9 @@ function adicionar() {
                 item.innerText = `Valor ${num.value} adicionado`;
                 lista.appendChild(item);
 
+                // Limpa o conteúdo da div resultado a cada número adicionado
+                resultados.innerHTML = '';
+
                 num.value = '';
                 num.focus();
                 
@@ -51,50 +57,48 @@ function adicionar() {
 }
 function finalizar() {
 
-    // Seleciona a div onde serão exibidos os resultados
-    let resultados = document.getElementById('resultados');
-
-    // Ordena o vetor para obter posteriormente o maior e o menor valor
-    numeros.sort(function(a, b) {
-        return a - b;
-    });
-
-    // Verifica se o conteúdo da div está vazio
-    if (resultados.hasChildNodes()) {
-        console.log('div cheia');
-        console.log(numeros)
-        resultados.innerText = '';
-    }
+    if (numeros.length != 0) {
     
-    // Quantidade de números
-    let qntdNum = document.createElement('p');
-    qntdNum.innerText = `Ao todo, foram cadastrados ${numeros.length} número(s).`;
-    resultados.appendChild(qntdNum);
+        // Ordena o vetor para obter posteriormente o maior e o menor valor
+        numeros.sort(function(a, b) {
+            return a - b;
+        });
+        
+        // Quantidade de números
+        let qntdNum = document.createElement('p');
+        qntdNum.innerText = `Ao todo, foram cadastrados ${numeros.length} número(s).`;
+        resultados.appendChild(qntdNum);
+        
+        // Maior número
+        let maiorNum = numeros[numeros.length-1];
+        let maior = document.createElement('p');
+        maior.innerText = `O maior número é ${maiorNum}.`
+        resultados.appendChild(maior);
     
-    // Maior número
-    let maiorNum = numeros[numeros.length-1];
-    let maior = document.createElement('p');
-    maior.innerText = `O maior número é ${maiorNum}.`
-    resultados.appendChild(maior);
+        // Menor número 
+        let menorNum = numeros[0];
+        let menor = document.createElement('p');
+        menor.innerText = `O menor número é ${menorNum}.`
+        resultados.appendChild(menor);
+    
+        // Somatório
+        let soma = 0;
+        for (i = 0; i < numeros.length; i++) {
+            soma += parseInt(numeros[i]);
+        }
+        let somatorio = document.createElement('p');
+        somatorio.innerText = `O soma dos números é ${soma}.`
+        resultados.appendChild(somatorio);
+    
+        // Média
+        let media = soma / numeros.length;
+        let mediaNum = document.createElement('p');
+        mediaNum.innerText = `A média dos números é ${media.toFixed(2)}`;
+        resultados.appendChild(mediaNum);
 
-    // Menor número 
-    let menorNum = numeros[0];
-    let menor = document.createElement('p');
-    menor.innerText = `O menor número é ${menorNum}.`
-    resultados.appendChild(menor);
-
-    // Somatório
-    let soma = 0;
-    for (i = 0; i < numeros.length; i++) {
-        soma += parseInt(numeros[i]);
+        num.focus();
+    } else {
+        alert('Por favor, digite um número de 1 a 100');
+        num.focus();
     }
-    let somatorio = document.createElement('p');
-    somatorio.innerText = `O soma dos números é ${soma}.`
-    resultados.appendChild(somatorio);
-
-    // Média
-    let media = soma / numeros.length;
-    let mediaNum = document.createElement('p');
-    mediaNum.innerText = `A média dos números é ${media.toFixed(2)}`;
-    resultados.appendChild(mediaNum);
 }
